@@ -78,8 +78,6 @@ exports.create = (req, res) => {
         completed: req.body.completed ? req.body.completed : false,
         list_id: req.body.list_id,
         user_id: req.body.user_id,
-        created_at: req.body.created_at,
-        updated_at: req.body.updated_at,
     };
 
     // Save Todo in the database

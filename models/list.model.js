@@ -6,21 +6,12 @@ module.exports = (sequelize, Sequelize) => {
         description: {
             type: Sequelize.STRING
         },
-        id: {
-            type: Sequelize.INTEGER
-        },
         todos: {
             type: Sequelize.ARRAY(Sequelize.INTEGER)
         },
         user_id: {
             type: Sequelize.UUID
         },
-        created_at: {
-            type: Sequelize.DATE
-        },
-        updated_at: {
-            type: Sequelize.DATE
-        }
     });
 
     return List;

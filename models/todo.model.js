@@ -1,8 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
     const Todo = sequelize.define("todo", {
-        id:{
-            type: Sequelize.INTEGER,
-        },
         title: {
             type: Sequelize.STRING
         },
@@ -18,12 +15,6 @@ module.exports = (sequelize, Sequelize) => {
         user_id: {
             type: Sequelize.UUID
         },
-        created_at: {
-            type: Sequelize.DATE
-        },
-        updated_at: {
-            type: Sequelize.DATE
-        }
     });
 
     return Todo;
