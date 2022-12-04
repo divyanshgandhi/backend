@@ -1,24 +1,22 @@
-const PORT = 8080;
-const CORS_PORT = 8081;
-
 const express = require('express');
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const db = require("./models");
+require('dotenv').config();
+
+const PORT = process.env.PORT;
+const CORS_PORT = process.env.CORS_PORT;
+
 
 const app = express();
 var corsOptions = {
-    origin: ("http://localhost:%d", CORS_PORT)
+    origin: ("http://localhost:" + CORS_PORT)
 };
 
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use((req, res, next) => {
-    console.log('Time: ', Date.now());
-    next();
-});
 
 app.use('/request-type', (req, res, next) => {
     console.log('Request type: ', req.method);
@@ -35,5 +33,6 @@ app.get('/', (req, res) => {
 });
 
 require("./routes/todo.routes")(app);
+require("./routes/list.routes")(app);
 
-app.listen(PORT, () => console.log("App running and serving on %d", PORT));
+app.listen(PORT, () => console.log("App running and serving on " + PORT));

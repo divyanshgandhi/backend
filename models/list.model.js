@@ -10,7 +10,7 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.ARRAY(Sequelize.INTEGER)
         },
         user_id: {
-            type: Sequelize.UUID
+            type: Sequelize.INTEGER
         },
     });
 

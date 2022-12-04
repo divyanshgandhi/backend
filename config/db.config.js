@@ -1,10 +1,11 @@
-const password = "Bad@tPa$$w0rds";
+const password = "password";
 
 module.exports = {
-    HOST: "localhost",
+    HOST: "db",
     USER: "postgres",
     PASSWORD: password,
-    DB: "todo-app",
+    PORT: 5432,
+    DB: "twodo-db",
     dialect: "postgres",
     pool: {
         max: 5,

@@ -13,7 +13,7 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.INTEGER
         },
         user_id: {
-            type: Sequelize.UUID
+            type: Sequelize.INTEGER
         },
     });
 

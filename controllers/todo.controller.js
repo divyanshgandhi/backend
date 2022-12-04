@@ -1,14 +1,13 @@
 const db = require("../models");
+const listController = require("../controllers/list.controller.js");
 const Todo = db.todo;
+const List = db.list;
 const Op = db.Sequelize.Op;
 
 // Retrieve all Todos from the DB for current user using a user ID
 exports.findAll = (req, res) => {
-    const user_id = req.query.user_id;
-    var condition = user_id ? { user_id: { [Op.eq]: `${user_id}` } } : null;
-
     //Using Serialize to findAll Todos for a specific user
-    Todo.findAll({ where: condition })
+    Todo.findAll()
         .then(data => {
             res.send(data);
         })
