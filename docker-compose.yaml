@@ -1,10 +1,6 @@
 version: '3.9'
 
 services:
-  server:
-    build: .
-    ports:
-      - '8000:8080'
   db:
     image: postgres:13.2
     environment:
@@ -13,3 +9,7 @@ services:
       POSTGRES_DB: twodo-db
     ports:
       - '4321:5432'
+  server:
+    build: .
+    ports:
+      - '8000:8080'

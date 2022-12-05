@@ -35,4 +35,34 @@ app.get('/', (req, res) => {
 require("./routes/todo.routes")(app);
 require("./routes/list.routes")(app);
 
+const firstList = {
+    title: "Task List",
+    description: "A list of tasks to complete",
+    todos: [],
+};
+
+const firstTodo = {
+    title: "First Todo",
+    description: "This is the first todo",
+    completed: false,
+    list_id: 1,
+};
+
+db.list.create(firstList)
+    .then(data => {
+        console.log("First list created: ", data);
+    })
+    .catch(err => {
+        console.log("Error creating first list: ", err);
+    });
+
+db.todo.create(firstTodo)
+    .then(data => {
+        console.log("First todo created: ", data);
+    })
+    .catch(err => {
+        console.log("Error creating first todo: ", err);
+    });
+
+
 app.listen(PORT, () => console.log("App running and serving on " + PORT));

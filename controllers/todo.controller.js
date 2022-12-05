@@ -21,11 +21,11 @@ exports.findAll = (req, res) => {
 
 //Retrieve all Todos from a specific list using a list ID
 exports.findInList = (req, res) => {
-    const list_id = req.query.list_id;
+    const list = req.query.list_id;
     var condition = list_id ? { lsit_id: { [Op.eq]: `${list_id}` } } : null;
 
     //Using Serialize to findAll Todos for a specific list
-    Todo.findAll({ where: condition })
+    Todo.findAll({ where: { list_id: list } })
         .then(data => {
             res.send(data);
         })
