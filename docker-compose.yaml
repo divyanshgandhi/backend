@@ -11,5 +11,7 @@ services:
       - '4321:5432'
   server:
     build: .
+    depends_on:
+      - db
     ports:
       - '8000:8080'
